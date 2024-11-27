@@ -1,0 +1,18 @@
+{
+  "name": "backend-basics",
+  "version": "1.0.0",
+  "description": "basics of nodejs",
+  "main": "app.js",
+  "author": "Himanshu",
+  "license": "MIT",
+
+  "scripts": {
+    "start": "nodemon app.js"
+},
+
+
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
