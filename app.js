@@ -1,6 +1,7 @@
 const express = require("express");
-const fs = require('fs');
-const path = require('path');
+const mongoose = require('mongoose')
+// const fs = require('fs');
+// const path = require('path');
 
 
 // console.log(path.extname("BACKEND-BASICS/example.txt"));
@@ -18,27 +19,32 @@ const path = require('path');
 
 // fs.unlinkSync('example.txt');
 
-fs.readFile('example.txt', 'utf-8', (err, data)=>{
+// fs.readFile('example.txt', 'utf-8', (err, data)=>{
 
-  if(err){
-      console.log("Error in reading file", err);
+//   if(err){
+//       console.log("Error in reading file", err);
 
-      return;
-  }
+//       return;
+//   }
 
-  console.log('File content', data)
+//   console.log('File content', data)
 
-})
+// })
 
-console.log('Reading file....')
+// console.log('Reading file....')
 
 
 const app = express();
 
+mongoose.connect('mongodb-connection-string')
+  .then(() => console.log('MongoDB Connected!'))
+  .catch(()=>console.log("Mongo Connection error occurred"))
+
+
 // Define a port for the server
 const PORT = 300;
 
-app.get("/response", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send(`Server is running on PORT ${PORT}`);
 });
 
